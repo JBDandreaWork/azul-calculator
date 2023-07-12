@@ -3,16 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <title>Azul Score Calculator</title>
 </head>
 <body>
-    <h1>Azul Calculator</h1>
-    <h2>Score: 0</h2>
-    <div id="grid">
-        
-    </div>
+    <h1>Azul Score Calculator</h1>
+    <h2>Final Score: 0</h2>
+    <table id="grid">
+        <tr>
+            <td><div class="tile" id="t11"></div></td>
+            <td><div class="tile" id="t12"></div></td>
+            <td><div class="tile" id="t13"></div></td>
+            <td><div class="tile" id="t14"></div></td>
+            <td><div class="tile" id="t15"></div></td>
+        </tr>
+        <tr>
+            <td><div class="tile" id="t21"></div></td>
+            <td><div class="tile" id="t22"></div></td>
+            <td><div class="tile" id="t23"></div></td>
+            <td><div class="tile" id="t24"></div></td>
+            <td><div class="tile" id="t25"></div></td>
+        </tr>
+        <tr>
+            <td><div class="tile" id="t31"></div></td>
+            <td><div class="tile" id="t32"></div></td>
+            <td><div class="tile" id="t33"></div></td>
+            <td><div class="tile" id="t34"></div></td>
+            <td><div class="tile" id="t35"></div></td>
+        </tr>
+        <tr>
+            <td><div class="tile" id="t41"></div></td>
+            <td><div class="tile" id="t42"></div></td>
+            <td><div class="tile" id="t43"></div></td>
+            <td><div class="tile" id="t44"></div></td>
+            <td><div class="tile" id="t45"></div></td>
+        </tr>
+        <tr>
+            <td><div class="tile" id="t51"></div></td>
+            <td><div class="tile" id="t52"></div></td>
+            <td><div class="tile" id="t53"></div></td>
+            <td><div class="tile" id="t54"></div></td>
+            <td><div class="tile" id="t55"></div></td>
+        </tr>
+    </table>
 
-    <label>How many points lost from broken tiles?</label><br>
+    <label for="broken">How many points lost from broken tiles?</label><br>
     <input id="broken" name="broken" type="number" value="0" min="0" step="1">
 </body>
 </html>

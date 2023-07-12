@@ -1,0 +1,77 @@
+* {
+    padding: 0;
+    margin: 0;
+    margin-left: .75rem;
+    box-sizing: border-box;
+}
+
+h1 {
+    font-family: Avantgarde, TeX Gyre Adventor, URW Gothic L, sans-serif;
+    font-size: 3.75rem;
+}
+
+h1, label, input {
+    color:rgb(7, 7, 7);
+}
+
+h2 {
+    font-style: italic;
+    font-size: 2rem;
+    color:rgb(45, 45, 45);
+    padding-bottom: .25rem;
+}
+
+table {
+    padding-bottom: .75rem;
+}
+
+.tile {
+    width: 4rem;
+    height: 4rem;
+    border-radius: .3125rem;
+    margin: .3125rem;
+}
+
+.selected {
+    box-shadow: -.1875rem .1875;
+}
+
+#t11, #t22, #t33, #t44, #t55 {
+    background-color: rgb(135, 148, 185);
+}
+
+.selected#t11, .selected#t22, .selected#t33, .selected#t44, .selected#t55 {
+    background-color: royalblue;
+}
+
+#t12, #t23, #t34, #t45, #t51 {
+    background-color: rgb(255, 224, 123);
+}
+
+.selected#t12, .selected#t23, .selected#t34, .selected#t45, .selected#t51 {
+    background-color: rgb(255, 196, 0);
+}
+
+#t13, #t24, #t35, #t41, #t52 {
+    background-color: rgb(220, 110, 110);
+}
+
+.selected#t13, .selected#t24, .selected#t35, .selected#t41, .selected#t52 {
+    background-color: rgb(220, 0, 0);
+}
+
+#t14, #t25, #t31, #t42, #t53 {
+    background-color: gray;
+}
+
+.selected#t14, .selected#t25, .selected#t31, .selected#t42, .selected#t53 {
+    background-color: rgb(25, 25, 25);
+}
+
+#t15, #t21, #t32, #t43, #t54 {
+    background-color:rgb(188, 252, 231);
+}
+
+.selected#t15, .selected#t21, .selected#t32, .selected#t43, .selected#t54 {
+    background-color:aquamarine;
+}
