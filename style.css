@@ -1,8 +1,11 @@
 * {
     padding: 0;
     margin: 0;
-    margin-left: .75rem;
     box-sizing: border-box;
+}
+
+h1, h2, table, input, label {
+    margin-left: .75rem;
 }
 
 h1 {
@@ -25,15 +28,15 @@ table {
     padding-bottom: .75rem;
 }
 
-.tile {
-    width: 4rem;
-    height: 4rem;
-    border-radius: .3125rem;
-    margin: .3125rem;
+td {
+    width: 4.625rem;
+    height: 4.625rem;
 }
 
-.selected {
-    box-shadow: -.1875rem .1875;
+.tile {
+    width: 4em;
+    height: 4em;
+    border-radius: .3125rem;
 }
 
 #t11, #t22, #t33, #t44, #t55 {
@@ -74,4 +77,9 @@ table {
 
 .selected#t15, .selected#t21, .selected#t32, .selected#t43, .selected#t54 {
     background-color:aquamarine;
+}
+
+div.selected {
+    box-shadow: -.1875rem .1875rem;
+    margin-left: .3125rem;
 }
