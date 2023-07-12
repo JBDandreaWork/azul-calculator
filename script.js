@@ -1,6 +1,8 @@
 // Simple Global Variables
 const gridSize = 5;
+let tileScore = 0;
 let lastGridScore = 0;
+const tileOrder = [];
 
 // Creates the grid representing the tiles
 const grid = [];
@@ -12,10 +14,7 @@ for (let i = 0; i < gridSize; i++) {
     grid.push(temp);
 }
 
-/*
- Scores a single tile by only looking to the right and down.
- Otherwise, tiles could be scored multiple times.
-*/
+// Scores a tile by checking its surrounding tiles
 function scoreTile(row, col) {
     let score = 0;
     if (grid[row][col]) {
@@ -25,7 +24,15 @@ function scoreTile(row, col) {
             score++;
         }
 
+        for (let i = -1; i + row >= 0 && grid[i + row][col]; i--) {
+            score++;
+        }
+
         for (let i = 1; i + col < gridSize && grid[row][i + col]; i++) {
+            score++;
+        }
+
+        for (let i = -1; i + col >= 0 && grid[row][i + col]; i--) {
             score++;
         }
     }
@@ -34,7 +41,7 @@ function scoreTile(row, col) {
 
 // Calculates score for the entire grid;
 function calculateScore(rescoreGrid=true) {
-    let score = 0;
+    let score = tileScore;
 
     // Scores tiles and does bonus score for filled rows and columns
     if (rescoreGrid) {
@@ -42,7 +49,6 @@ function calculateScore(rescoreGrid=true) {
             let rowCheck = true;
             let colCheck = true;
             for (let j = 0; j < gridSize; j++) {
-                score += scoreTile(i, j);
                 rowCheck = rowCheck && grid[i][j];
                 colCheck = colCheck && grid[j][i];
             }
@@ -84,12 +90,26 @@ const tileClick = tile => {
     const classes = tile.classList;
     const row = parseInt(tile.id.charAt(1)) - 1;
     const col = parseInt(tile.id.charAt(2)) - 1;
-    if (classes.contains('selected')) {
+    if (classes.contains('last')) {
+        classes.remove('last');
         classes.remove('selected');
+        tileScore -= scoreTile(row, col);
         grid[row][col] = false;
-    } else {
+        
+        tileOrder.pop();
+        if (tileOrder.length > 0) {
+            document.querySelector(`#${tileOrder[tileOrder.length - 1]}`).classList.add('last');
+        }
+    } else if (!classes.contains('selected')) {
         classes.add('selected');
         grid[row][col] = true;
+        tileScore += scoreTile(row, col);
+
+        if (tileOrder.length > 0) {
+            document.querySelector(`#${tileOrder[tileOrder.length - 1]}`).classList.remove('last');
+        }
+        classes.add('last');
+        tileOrder.push(tile.id);
     }
     calculateScore();
 };

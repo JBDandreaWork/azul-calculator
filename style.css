@@ -56,6 +56,10 @@ div:hover {
     border: .375em solid purple;
 }
 
+div.last {
+    border: .75em solid purple;
+}
+
 #t11, #t22, #t33, #t44, #t55 {
     background-color: rgb(135, 148, 185);
 }
