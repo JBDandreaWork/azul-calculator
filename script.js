@@ -11,7 +11,12 @@ for (let i = 0; i < 5; i++) {
 // Sets itself up to handle tile clicks
 const tiles = document.querySelectorAll('.tile');
 const tileClick = tile => {
-    tile.classList.add('selected');
+    const classes = tile.classList;
+    if (classes.contains('selected')) {
+        classes.remove('selected');
+    } else {
+        classes.add('selected');
+    }
     calculateScore();
 };
 tiles.forEach(currentValue => currentValue.onclick = () => tileClick(currentValue));
