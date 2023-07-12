@@ -92,7 +92,7 @@ div:hover {
 }
 
 .selected#t15, .selected#t21, .selected#t32, .selected#t43, .selected#t54 {
-    background-color:aquamarine;
+    background-color:rgb(105, 255, 205);
 }
 
 div.selected {
