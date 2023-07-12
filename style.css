@@ -51,6 +51,10 @@ td {
     border-radius: .3125rem;
 }
 
+div:hover {
+    border: .375em solid purple;
+}
+
 #t11, #t22, #t33, #t44, #t55 {
     background-color: rgb(135, 148, 185);
 }
