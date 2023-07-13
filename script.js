@@ -64,7 +64,7 @@ function calculateScore(rescoreGrid=true) {
         for (let i = 0; i < gridSize; i++) {
             let colorCheck = true;
             for (let j = 0; colorCheck && j < gridSize; j++) {
-                colorCheck = grid[j][(j + i) % gridSize]; 
+                colorCheck = grid[j][(j + i) % gridSize];
             }
             if (colorCheck) {
                 score += 10;
@@ -76,39 +76,39 @@ function calculateScore(rescoreGrid=true) {
     }
 
     // Subtract from score for broken tiles
-    let broken = parseInt(document.querySelector('#broken').value);
+    let broken = parseInt(document.querySelector("#broken").value);
     if (broken > 0) {
         score -= broken;
     }
 
-    document.querySelector('#score').innerText = `Final Score: ${score}`;
+    document.querySelector("#score").innerText = `Final Score: ${score}`;
 }
 
 // Sets itself up to handle tile clicks
-const tiles = document.querySelectorAll('.tile');
+const tiles = document.querySelectorAll(".tile");
 const tileClick = tile => {
     const classes = tile.classList;
     const row = parseInt(tile.id.charAt(1)) - 1;
     const col = parseInt(tile.id.charAt(2)) - 1;
-    if (classes.contains('last')) {
-        classes.remove('last');
-        classes.remove('selected');
+    if (classes.contains("last")) {
+        classes.remove("last");
+        classes.remove("selected");
         tileScore -= scoreTile(row, col);
         grid[row][col] = false;
         
         tileOrder.pop();
         if (tileOrder.length > 0) {
-            document.querySelector(`#${tileOrder[tileOrder.length - 1]}`).classList.add('last');
+            document.querySelector(`#${tileOrder[tileOrder.length - 1]}`).classList.add("last");
         }
-    } else if (!classes.contains('selected')) {
-        classes.add('selected');
+    } else if (!classes.contains("selected")) {
+        classes.add("selected");
         grid[row][col] = true;
         tileScore += scoreTile(row, col);
 
         if (tileOrder.length > 0) {
-            document.querySelector(`#${tileOrder[tileOrder.length - 1]}`).classList.remove('last');
+            document.querySelector(`#${tileOrder[tileOrder.length - 1]}`).classList.remove("last");
         }
-        classes.add('last');
+        classes.add("last");
         tileOrder.push(tile.id);
     }
     calculateScore();
@@ -116,5 +116,5 @@ const tileClick = tile => {
 tiles.forEach(currentValue => currentValue.onclick = () => tileClick(currentValue));
 
 // Set up to update score based on broken tiles
-const broken = document.querySelector('#broken');
+const broken = document.querySelector("#broken");
 broken.oninput = () => calculateScore(false);
